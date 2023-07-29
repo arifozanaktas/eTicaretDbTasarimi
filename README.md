@@ -1,5 +1,5 @@
-###eTicaretDbTasarimi
-##eTicaret Database Projesindeki SQL Tasarımı
+### eTicaretDbTasarimi
+## eTicaret Database Projesindeki SQL Tasarımı
 
 Bir e-ticaret sitesinin ürün, sepet, ödeme, kargo, satıcı ve kullanıcı gibi başlıklarını içeren kısa fakat detaylı bir tasarımını gerçekleştirdim. 
 Detaylarını part part açıklayacağım.
