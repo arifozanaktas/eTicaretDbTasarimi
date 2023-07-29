@@ -43,3 +43,17 @@ CREATE TABLE [dbo].[Users](
 	[UpdatedDate] [datetime] NULL,
 ```
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/7702e53d-83f8-45b5-a5a8-7cd0acaab46d)
+
+---
+*Tickets table ı kullanıcıve satıcının iletişime geçebilmesi hakkında bilgiler içermektedir.
+CREATE TABLE [dbo].[Tickets](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SellerId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Subject] [varchar](150) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/78e675b0-cb31-476b-89af-763bde0ea68d)
+
+---
