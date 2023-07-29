@@ -21,6 +21,7 @@ CREATE TABLE [dbo].[Users](
 	[CreatedDate] [datetime] NOT NULL,
 	[UpdatedDate] [datetime] NULL,
 ```
-![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/24d0e1d7-67b3-404c-bb9b-c5a66a04f832)
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/1d8ba5fc-4371-4902-ac20-b03706626072)
+
 
 ---
