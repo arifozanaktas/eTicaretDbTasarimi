@@ -46,6 +46,7 @@ CREATE TABLE [dbo].[Users](
 
 ---
 *Tickets table ı kullanıcıve satıcının iletişime geçebilmesi hakkında bilgiler içermektedir.
+```tSQL
 CREATE TABLE [dbo].[Tickets](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[SellerId] [int] NOT NULL,
