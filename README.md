@@ -6,6 +6,23 @@ Bir e-ticaret sitesinin ürün, sepet, ödeme, kargo, satıcı ve kullanıcı gi
 ![kapak](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/211d0e7b-a86c-4fbb-b7fe-b4c5b5999330)
 
 ---
+
+---
+*Users table ı kullanıcılar hakkında detaylı bilgiler içermektedir. Telefon numarası ve Update tarihi boş bırakılabilir şeklinde tasarlanmıştır.
+
+```tSQL
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](250) NOT NULL,
+	[Email] [varchar](250) NOT NULL,
+	[PhoneNumber] [varchar](50) NULL,
+	[PasswordHash] [varbinary](max) NOT NULL,
+	[PasswordSalt] [varbinary](max) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/7702e53d-83f8-45b5-a5a8-7cd0acaab46d)
 *UsersAddresses table ı kullanıcıların iletişim ve kargo bilgileri hakkında detaylar içermektedir. 
 Adres bilgileri Türkiye şartlarına uyarlanarak zorunlu alanlar düzenlenecek şeklinde tasarlanmıştır.
 
@@ -25,23 +42,6 @@ CREATE TABLE [dbo].[UserAddresses](
 ```
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/1d8ba5fc-4371-4902-ac20-b03706626072)
 
-
----
-*Users table ı kullanıcılar hakkında detaylı bilgiler içermektedir. Telefon numarası ve Update tarihi boş bırakılabilir şeklinde tasarlanmıştır.
-
-```tSQL
-CREATE TABLE [dbo].[Users](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [varchar](250) NOT NULL,
-	[Email] [varchar](250) NOT NULL,
-	[PhoneNumber] [varchar](50) NULL,
-	[PasswordHash] [varbinary](max) NOT NULL,
-	[PasswordSalt] [varbinary](max) NOT NULL,
-	[IsActive] [bit] NOT NULL,
-	[CreatedDate] [datetime] NOT NULL,
-	[UpdatedDate] [datetime] NULL,
-```
-![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/7702e53d-83f8-45b5-a5a8-7cd0acaab46d)
 
 ---
 *Tickets table ı kullanıcı ve satıcının iletişime geçebilmesi hakkında bilgiler içermektedir. Kullanımda olan 'Satıcıya soru sor' butonu amacıyla tasarlanmıştır.
