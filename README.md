@@ -58,3 +58,18 @@ CREATE TABLE [dbo].[Tickets](
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/78e675b0-cb31-476b-89af-763bde0ea68d)
 
 ---
+
+
+*TicketsDetails table ı kullanıcı ve satıcının iletişime geçtikten sonraki diğer kullanıcıların bu iletişimi gördüğü ekran hakkında bilgiler içermektedir. Kullanımda olan 'Satıcıya sorulan sorular' ekranı amacıyla tasarlanmıştır.
+```tSQL
+CREATE TABLE [dbo].[Tickets](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SellerId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[Subject] [varchar](150) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/93ccd7f4-11ee-4c6c-824c-ef276df58262)
+
+---
