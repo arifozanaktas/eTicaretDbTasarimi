@@ -9,7 +9,7 @@ Detaylarını part part açıklayacağım.
 ---
 *Users table ı kullanıcılar hakkında detaylı bilgiler içermektedir.
 
-***tSQL
+'''tSQL
 CREATE TABLE [dbo].[Users](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](250) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Users](
 	[IsActive] [bit] NOT NULL,
 	[CreatedDate] [datetime] NOT NULL,
 	[UpdatedDate] [datetime] NULL,
-***
+'''
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/24d0e1d7-67b3-404c-bb9b-c5a66a04f832)
 
 ---
