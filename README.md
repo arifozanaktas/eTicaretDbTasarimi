@@ -166,7 +166,7 @@ CREATE TABLE [dbo].[ProductSelections](
 ---
 
 
-*ProductSelections table ı satılacak ürünlerin üst kategorileri ile bağlantı sağladığımız tabledır ve Product table ı ile bağlantılı çalışır. 
+*Products table ı satılacak ürünleri ile satıcının bağlantısını sağladığımız tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[Products](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -176,4 +176,219 @@ CREATE TABLE [dbo].[Products](
 	[UpdatedDate] [datetime] NULL,
 	[SellerId] [int] NOT NULL,
 ```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/e059141d-296d-472a-9fae-d92d5144a3e4)
 
+---
+
+
+*ProductFields table ı satılacak ürünlerin renk,ölçü gibi detaylarının seçilip stok,ilk açılıştaki görseli ve fiyat gibi bilgilerin kullanıcıya aktarıldığı tabledır. 
+```tSQL
+CREATE TABLE [dbo].[ProductFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](150) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[ProductSelectionId] [int] NOT NULL,
+	[MainImageUrl] [varchar](max) NULL,
+	[MainProductFieldId] [int] NULL,
+	[IsActive] [bit] NOT NULL,
+	[Price] [money] NULL,
+	[SellingPrice] [money] NULL,
+	[Stock] [decimal](18, 2) NULL,
+	[IsVatInclude] [bit] NOT NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/b342d949-44fa-4b60-8e41-ae8483e89237)
+
+---
+
+
+*ProductFieldImageUrls table ı satılacak ürünlerin renk,ölçü gibi detaylarının seçildikten sonraki görsellerinin kullanıcıya aktarıldığı tabledır. 
+```tSQL
+CREATE TABLE [dbo].[ProductFieldImageUrls](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ImageUrl] [varchar](max) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[ProductFieldId] [int] NOT NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/26a1c4a0-dc1f-49d4-ac9b-3169ab7949e6)
+
+
+---
+
+
+*ProductFieldCategoryFields table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[ProductFieldCategoryFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductFieldId] [int] NOT NULL,
+	[CategoryFieldId] [int] NOT NULL,
+	[Value] [varchar](250) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/44053470-9deb-4925-8f20-c3003d59f880)
+
+---
+
+
+*PaymentDetails table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[PaymentDetails](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NOT NULL,
+	[PaymentPrice] [money] NOT NULL,
+	[PaymentType] [varchar](150) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[KKPaymentConfirmId] [int] NULL,
+	[BankName] [varchar](150) NULL,
+	[IsCompleted] [bit] NOT NULL,
+	[CompletedDate] [datetime] NULL,
+	[Description] [varchar](250) NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/e3111452-382b-4caa-bbe2-943aa35cd0fa)
+
+---
+
+
+*OrderStatuses table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[OrderStatuses](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[IsActive] [bit] NOT NULL,
+```
+
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/3f438fc5-b09c-4b14-9135-ec3898025428)
+
+---
+
+
+*Orders table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[Orders](
+	[Id] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[ProductFieldId] [int] NOT NULL,
+	[SellingPrice] [money] NOT NULL,
+	[Stock] [decimal](18, 2) NOT NULL,
+	[UserAddressId] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[OrderStatusId] [int] NOT NULL,
+	[CargoTracingNumber] [varchar](150) NULL,
+```
+
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/4c7ebaae-2fd7-4385-b74e-b6ad969920bc)
+
+---
+
+
+*Invoices table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[Invoices](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NOT NULL,
+	[InvoiceNumber] [varchar](16) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[DeliveryDate] [datetime] NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[Discount] [money] NOT NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/d1b541ed-f9db-42ab-b9fa-e2a3ecbf1f64)
+
+---
+
+
+*Comments table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[Comments](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NOT NULL,
+	[Rating] [int] NOT NULL,
+	[Comment] [varchar](250) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/2e7e976a-5814-4614-85cd-ee601bd82750)
+
+---
+
+
+*CommentLikes table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[CommentLikes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[CommentId] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/e82a7ccd-dc30-4223-87c8-a0eca8cbf077)
+
+---
+
+
+*CommentImageUrls table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[CommentImageUrls](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CommentId] [int] NOT NULL,
+	[ImageUrl] [varchar](max) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/76224a98-197d-4dd8-bd7f-2fc12aba0199)
+
+---
+
+
+*CategoryFields table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[CategoryFields](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](150) NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/4c77db8f-011f-493b-864f-306762696e2f)
+
+
+---
+
+
+*CategoryEquivalents table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[CategoryEquivalents](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[EquivalentId] [int] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+```
+
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/94dc35f5-cb73-47a9-b52e-ad351c22329e)
+
+---
+
+
+*Categories table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+```tSQL
+CREATE TABLE [dbo].[Categories](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](250) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[MainCategoryId] [int] NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[Path] [varchar](max) NULL,
+	[VatRate] [int] NOT NULL,
+```
+![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/a54f51c9-66fd-4575-bf8b-09186f2d6f4e)
