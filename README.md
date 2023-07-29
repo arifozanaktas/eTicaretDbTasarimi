@@ -23,6 +23,9 @@ CREATE TABLE [dbo].[Users](
 	[UpdatedDate] [datetime] NULL,
 ```
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/7702e53d-83f8-45b5-a5a8-7cd0acaab46d)
+
+---
+
 *UsersAddresses table ı kullanıcıların iletişim ve kargo bilgileri hakkında detaylar içermektedir. 
 Adres bilgileri Türkiye şartlarına uyarlanarak zorunlu alanlar düzenlenecek şeklinde tasarlanmıştır.
 
