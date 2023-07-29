@@ -45,7 +45,7 @@ CREATE TABLE [dbo].[Users](
 ![image](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/7702e53d-83f8-45b5-a5a8-7cd0acaab46d)
 
 ---
-*Tickets table ı kullanıcıve satıcının iletişime geçebilmesi hakkında bilgiler içermektedir.
+*Tickets table ı kullanıcı ve satıcının iletişime geçebilmesi hakkında bilgiler içermektedir. Kullanımda olan 'Satıcıya soru sor' butonu amacıyla tasarlanmıştır.
 ```tSQL
 CREATE TABLE [dbo].[Tickets](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
