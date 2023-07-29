@@ -7,17 +7,20 @@ Detaylarını part part açıklayacağım.
 ![kapak](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/211d0e7b-a86c-4fbb-b7fe-b4c5b5999330)
 
 ---
-*Users table ı kullanıcılar hakkında detaylı bilgiler içermektedir. Telefon numarası ve Update tarihi boş bırakılabilir şeklinde tasarlanmıştır.
+*UsersAddresses table ı kullanıcıların iletişim ve kargo bilgileri hakkında detaylar içermektedir. 
+Adres bilgileri Türkiye şartlarına uyarlanarak zorunlu alanlar düzenlenecek şeklinde tasarlanmıştır.
 
 ```tSQL
-CREATE TABLE [dbo].[Users](
+CREATE TABLE [dbo].[UserAddresses](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [varchar](250) NOT NULL,
-	[Email] [varchar](250) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[City] [varchar](150) NOT NULL,
+	[Town] [varchar](150) NULL,
+	[Street] [varchar](150) NULL,
+	[ZipCode] [varchar](50) NULL,
+	[Address] [varchar](550) NOT NULL,
 	[PhoneNumber] [varchar](50) NULL,
-	[PasswordHash] [varbinary](max) NOT NULL,
-	[PasswordSalt] [varbinary](max) NOT NULL,
-	[IsActive] [bit] NOT NULL,
+	[Name] [varchar](50) NULL,
 	[CreatedDate] [datetime] NOT NULL,
 	[UpdatedDate] [datetime] NULL,
 ```
