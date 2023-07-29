@@ -1,8 +1,7 @@
 ## eTicaretDbTasarimi
 ### eTicaret Database Projesindeki SQL Tasarımı
 
-Bir e-ticaret sitesinin ürün, sepet, ödeme, kargo, satıcı ve kullanıcı gibi başlıklarını içeren kısa fakat detaylı bir tasarımını gerçekleştirdim. 
-Detaylarını part part açıklayacağım.
+Bir e-ticaret sitesinin ürün, sepet, ödeme, kargo, satıcı ve kullanıcı gibi başlıklarını içeren kısa fakat detaylı bir tasarımını gerçekleştirdim. Aşağıda diagramını paylaştığım projenin detaylarını part part açıklayacağım.
 
 ![kapak](https://github.com/arifozanaktas/eTicaretDbTasarimi/assets/139919845/211d0e7b-a86c-4fbb-b7fe-b4c5b5999330)
 
@@ -166,7 +165,7 @@ CREATE TABLE [dbo].[ProductSelections](
 ---
 
 
-*Products table ı satılacak ürünleri ile satıcının bağlantısını sağladığımız tabledır. 
+*Products table ı satılacak ürünler ile satıcının bağlantısını sağladığımız tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[Products](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -217,7 +216,7 @@ CREATE TABLE [dbo].[ProductFieldImageUrls](
 ---
 
 
-*ProductFieldCategoryFields table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*ProductFieldCategoryFields table ı satılacak ürünlerin seçilen kategoriler ile bağlantı kurmasını sağlayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[ProductFieldCategoryFields](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -232,7 +231,7 @@ CREATE TABLE [dbo].[ProductFieldCategoryFields](
 ---
 
 
-*PaymentDetails table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*PaymentDetails table ı satılan ürünlerin satış bilgilerinin detaylarının, tamamlanıp tamamlanmadığı hakkında gibi bilgileri saklayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[PaymentDetails](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -267,7 +266,7 @@ CREATE TABLE [dbo].[OrderStatuses](
 ---
 
 
-*Orders table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*Orders table ı satılan ürünlerin kargo durumu, kargo takip numarası, satış fiyatı ve adeti gibi bilgiler içeren tabledır ve bir çok table ile kullanıcı bilgileri, ödeme bilgileri, kullanıcı adresleri, fatura gibi tablelarla da bağlantılı çalışır. 
 ```tSQL
 CREATE TABLE [dbo].[Orders](
 	[Id] [int] NOT NULL,
@@ -287,7 +286,7 @@ CREATE TABLE [dbo].[Orders](
 ---
 
 
-*Invoices table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*Invoices table ı satılan ürünlerin fatura oluşturulması verilerini içeren tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[Invoices](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -304,7 +303,7 @@ CREATE TABLE [dbo].[Invoices](
 ---
 
 
-*Comments table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*Comments table ı satılan ürünlerin puanlamasını ve yorumlanmasını sağlayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[Comments](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -320,7 +319,7 @@ CREATE TABLE [dbo].[Comments](
 ---
 
 
-*CommentLikes table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*CommentLikes table ı satılan ürünlere yapılan yorumların beğenilebilmesini sağlayan verileri saklar. 
 ```tSQL
 CREATE TABLE [dbo].[CommentLikes](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -334,7 +333,7 @@ CREATE TABLE [dbo].[CommentLikes](
 ---
 
 
-*CommentImageUrls table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*CommentImageUrls table ı satılan ürünlerin yorumlarına kullanıcı fotoğrafları eklenmesini sağlayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[CommentImageUrls](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -348,7 +347,7 @@ CREATE TABLE [dbo].[CommentImageUrls](
 ---
 
 
-*CategoryFields table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*CategoryFields table ı satılacak ürünlerin kategorilerini listelememizi sağlayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[CategoryFields](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -364,7 +363,7 @@ CREATE TABLE [dbo].[CategoryFields](
 ---
 
 
-*CategoryEquivalents table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*CategoryEquivalents table ı satılacak ürünlerin benzer veya eşdeğerleri ile bağlantı kurmasını sağlayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[CategoryEquivalents](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -379,7 +378,7 @@ CREATE TABLE [dbo].[CategoryEquivalents](
 ---
 
 
-*Categories table ı satılacak ürünlerin seçilebilecek kategoriler ile bağlantı kurmasını sağlayan tabledır. 
+*Categories table ı satılacak ürünlerin kategorilerini, KDV değerlerini ve aktif olup olmadığı gibi veerileri saklayan tabledır. 
 ```tSQL
 CREATE TABLE [dbo].[Categories](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
